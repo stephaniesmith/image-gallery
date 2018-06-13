@@ -21,9 +21,9 @@ route | description
 ---|---
 `/` | Home/Dashboard page (provide link to `/albums`)
 `/about` | About page (make something up)
-`/albums` | List of albums
+`/albums` | List of albums (name plus posterImage - only name for today!)
 `/albums/new` | Add a new album
-`/albums/update` | Update an album
+`/albums/:id` | Album detail route with name and description that has subroutes (listed below)
 `/albums/:id/images/thumbnail` | Album detail with subroute of thumbnails of images
 `/albums/:id/images/gallery` | Album detail with subroute of gallery image viewer
 `/albums/:id/images/list` | Album detail with subroute of tabular list of image data
@@ -34,7 +34,7 @@ route | description
 
 model | properties
 ---|---
-Album | id, title, description
+Album | id, title, description, posterImage
 Image | id, albumId, title, description, url
 
 
