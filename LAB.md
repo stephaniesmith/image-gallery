@@ -45,7 +45,7 @@ app will behave at each supported breakpoint for each supported route
 1. Consider and decide on color schemes and font
 1. Using CSS Grid and React Router, implement routes and subroutes with static components and 
 placeholder components for data-driven routes
-1. Using `redux` in the app, and standard express/mongoose/mongodb backend, implement the components
+1. Using `redux` in the app (plus `promise` and `thunk` middleware), and standard express/mongoose/mongodb backend, implement the components
 for the `/albums`, `/albums/new` and `/album/update` routes. For these routes:
     1. Draw out decomposed UIs
     1. List out state (things that change over time)
