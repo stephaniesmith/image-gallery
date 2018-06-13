@@ -18,11 +18,11 @@ route | description
 `/albums` | List of albums
 `/albums/new` | Add a new album
 `/albums/update` | Update an album
-`/albums/:id/images/thumbnail` | Album detail with thumbnails of images
-`/albums/:id/images/gallery` | Album detail with gallery image viewer
-`/albums/:id/images/list` | Album detail with tabular list of image data
-`/albums/:id/images/new` | Prompt for new image
-`/images | searchable list of all images (in thumbnail view)
+`/albums/:id/images/thumbnail` | Album detail with subroute of thumbnails of images
+`/albums/:id/images/gallery` | Album detail with subroute of gallery image viewer
+`/albums/:id/images/list` | Album detail with subroute of tabular list of image data
+`/albums/:id/images/new` | Album detail with subroute for adding a new image
+`/images` | searchable list of all images (in thumbnail view)
 
 ## Data
 
@@ -36,6 +36,7 @@ Image | id, albumId, title, description, url
 
 1. Create Route sketches and consdier Responsive layout. Goal is to understand how the 
 app will behave at each supported breakpoint for each supported route
+1. Consider and decide on color schemes and font
 1. Using CSS Grid and React Router, implement routes and subroutes with static components and 
 placeholder components for data-driven routes
 1. Using `redux` in the app, and standard express/mongoose/mongodb backend, implement the components
@@ -53,7 +54,7 @@ for the `/albums`, `/albums/new` and `/album/update` routes. For these routes:
         1. Implement service apis in client app
         1. Implement need routes/models on server
         1. Integrate actions and store via connect with component and make based on props
-
+        
 ## Rubric
 
 * Plan/sketch/design out routes, responsive layout, components (submit images) **3pts**
