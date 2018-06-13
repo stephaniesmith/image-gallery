@@ -7,6 +7,12 @@ Work in pairs to create a fullstack image gallery app
 
 The app allows users to create albums and the add images to those albums.
 
+The `App` component should have at least a header, nav and footer plus a main area whose
+content is controlled by the router.
+
+The `AlbumDetail` component (displayed at route `/albums/:id`) has a subroute area that displays
+one of three image views or the new image form
+
 ## Routes
 
 We won't be implementing all of these routes on day 1, but here is complete overview:
