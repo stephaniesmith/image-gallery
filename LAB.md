@@ -16,7 +16,7 @@ route | description
 `/` | Home/Dashboard page (provide link to `/albums`)
 `/about` | About page (make something up)
 `/albums` | List of albums
-`/albums/new | Add a new album
+`/albums/new` | Add a new album
 `/albums/update` | Update an album
 `/albums/:id/images/thumbnail` | Album detail with thumbnails of images
 `/albums/:id/images/gallery` | Album detail with gallery image viewer
