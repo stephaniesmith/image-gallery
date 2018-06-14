@@ -1,0 +1,7 @@
+:local(.album) {
+  height: 33vw;
+  border: salmon solid 5px;
+  img {
+    width: 100%;
+  }
+}
