@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 
+import styles from './Header.css';
+
 export default class Footer extends Component {
   render() {
     return (
-      <div>
+      <header className={styles.header}>
         HEADER!
-      </div>
+      </header>
     );
   }
 }

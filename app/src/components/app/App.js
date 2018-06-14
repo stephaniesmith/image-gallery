@@ -6,12 +6,14 @@ import Albums from '../albums/Albums';
 import About from '../about/About';
 import Images from '../images/Images';
 
+import styles from './App.css';
+
 export default class App extends Component {
   render() {
     return (
       
       <Router>
-        <div>
+        <div className={styles.app}>
           <Header/>
           <main>
             <Switch>
