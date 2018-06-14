@@ -15,9 +15,11 @@ export default class App extends Component {
           <Header/>
           <main>
             <Switch>
+              <Route exact path="/" component={Albums}/>
               <Route path="/albums" component={Albums}/>
               <Route path="/about" component={About}/>
               <Route path="/images" component={Images}/>
+              <Redirect to="/"/>
             </Switch>
           </main>
           <Footer/>
