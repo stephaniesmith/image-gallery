@@ -5,7 +5,7 @@ jest.mock('../../services/api', () => ({
 
 import { loadAlbums, createAlbum } from './actions';
 import { ALBUMS_LOAD, ALBUM_ADD } from './reducers';
-import { getAllAlbums, postAlbum } from '../../services';
+import { getAllAlbums, postAlbum } from '../../services/api';
 
 describe('albums actions', () => {
   it('loads albums', () => {
