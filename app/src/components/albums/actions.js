@@ -9,9 +9,14 @@ import {
 } from '../../services/api';
 
 export function loadAlbums() {
-  return {
-    type: ALBUMS_LOAD,
-    payload: getAllAlbums()
+  return (dispatch) => {
+    return getAllAlbums()
+      .then(albums => {
+        dispatch({
+          type: ALBUMS_LOAD,
+          payload: albums
+        });
+      });
   };
 }
 
