@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { createAlbum } from './actions';
+import { getAlbums } from './reducers';
 
 const defaultState = {
   title: '',
@@ -8,10 +11,10 @@ const defaultState = {
 };
 
 
-export default class NewAlbum extends Component {
+class NewAlbum extends Component {
 
-  static PropTypes = {
-    onComplete: PropTypes.func.isRequired,
+  static propTypes = {
+    createAlbum: PropTypes.func.isRequired,
   };
 
   static getDerivedStateFromProps({ album }, { edit }) {
@@ -39,7 +42,7 @@ export default class NewAlbum extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.onComplete(this.state.edit);
+    this.props.createAlbum(this.state.edit);
     this.setState({
       edit: { ...defaultState }
     });
@@ -61,4 +64,9 @@ export default class NewAlbum extends Component {
     );
   }
 }
+
+export default connect(
+  state => ({ albums: getAlbums(state) }),
+  { createAlbum }
+)(NewAlbum);
 
