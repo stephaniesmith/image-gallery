@@ -14,3 +14,10 @@ export function loadAlbums() {
     payload: getAllAlbums()
   };
 }
+
+export function createAlbum(album) {
+  return {
+    type: ALBUM_ADD,
+    payload: postAlbum(album)
+  };
+}

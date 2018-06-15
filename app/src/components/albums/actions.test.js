@@ -24,7 +24,7 @@ describe('albums actions', () => {
     postAlbum.mockReturnValueOnce(promise);
 
     const { type, payload } = createAlbum(promise);
-    expect(type).toBe(ALBUMS_ADD);
+    expect(type).toBe(ALBUM_ADD);
     expect(getAllAlbums.mock.calls.length).toBe(1);
     expect(payload).toBe(promise);
   });
