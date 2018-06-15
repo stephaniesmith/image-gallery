@@ -2,7 +2,10 @@ import {
   getAlbums,
   ALBUMS_LOAD,
   ALBUM_ADD,
-  albums
+  albums,
+  album,
+  ALBUM_LOAD,
+  getAlbum
 } from './reducers';
 
 describe('Albums Reducer', () =>{
@@ -33,6 +36,26 @@ describe('Albums Reducer', () =>{
     });
     
     expect(state).toEqual([data, newData]);
+  });
+});
+
+describe('Album Reducer', () =>{
+
+  it('empty object for initial state', () => {
+    const state = album(undefined, {});
+    expect(state).toEqual({});
+  });
+
+  it('loads an album', () => {
+    const data = { _id: 1, title: 'title', description: 'description', posterImage: 'url' };
+    const moreData = { _id: 2, title: 'newTitle', description: 'newDescription', posterImage: 'newUrl' };
+
+    const state = album({ _id: 1 }, {
+      type: ALBUM_LOAD,
+      payload: [data, moreData]
+    });
+
+    expect(state).toEqual(data);
   });
 });
 

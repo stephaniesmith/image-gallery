@@ -1,9 +1,10 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { albums } from '../components/albums/reducers';
+import { albums, album } from '../components/albums/reducers';
 
 const rootReducer = combineReducers({
-  albums
+  albums,
+  album
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
