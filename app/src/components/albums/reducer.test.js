@@ -69,4 +69,10 @@ describe('selectors', () => {
     const got = getAlbums({ albums });
     expect(got).toBe(albums);
   });
+
+  it('selects albums', () => {  
+    const album = { title: 'title', description: 'description', posterImage: 'url' };  
+    const got = getAlbum({ album });
+    expect(got).toBe(album);
+  });
 });
