@@ -1,6 +1,5 @@
 const { assert } = require('chai');
-// const { Types } = require('mongoose');
-// const { getErrors } = require('./helpers');
+const { getErrors } = require('./helpers');
 const Album = require('../../lib/models/Album');
 
 describe('Album model', () => {
@@ -16,6 +15,14 @@ describe('Album model', () => {
         data._id = album._id;
         assert.deepEqual(album.toJSON(), data);
         assert.isUndefined(album.validateSync());
+    });
+
+    it('album requires title, description, posterImage', () => {
+        const album = new Album({});
+        const errors = getErrors(album.validateSync(), 3);
+        assert.equal(errors.title.kind, 'required');
+        assert.equal(errors.description.kind, 'required');
+        assert.equal(errors.posterImage.kind, 'required');
     });
 
 });
