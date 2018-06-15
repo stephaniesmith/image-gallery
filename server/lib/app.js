@@ -10,12 +10,12 @@ app.use(morgan('dev'));
 app.use(cors());
 // app.use(sslRedirect());
 
-// const albums = require('./routes/albums');
+const albums = require('./routes/albums');
 
 
 app.use(express.json());
 
-// app.use('/albums', albums);
+app.use('/albums', albums);
 
 app.use(errorHandler());
 
