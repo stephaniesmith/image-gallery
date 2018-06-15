@@ -12,6 +12,7 @@ export function loadAlbums() {
   return (dispatch) => {
     return getAllAlbums()
       .then(albums => {
+        console.log('albums', albums);
         dispatch({
           type: ALBUMS_LOAD,
           payload: albums
