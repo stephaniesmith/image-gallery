@@ -14,6 +14,6 @@ const headers = {
 };
 
 export const get = url => request(url);
-export const post = (url, data) => request(url, { method: 'POST', headers }, data)
-export const put = (url, data) => request(url, { method: 'PUT', headers }, data)
-export const del = (url, data) => request(url, { method: 'DELETE', headers }, data)
+export const post = (url, data) => request(url, { method: 'POST', headers }, data);
+export const put = (url, data) => request(url, { method: 'PUT', headers }, data);
+export const del = (url, data) => request(url, { method: 'DELETE', headers }, data);
