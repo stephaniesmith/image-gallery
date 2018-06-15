@@ -3,7 +3,7 @@ export const ALBUMS_ADD = 'ALBUMS_LOAD';
 
 export const getAlbums = state => state.albums;
 
-export function albums(state = getAlbums(), { type, payload }) {
+export function albums(state = [], { type, payload }) {
   switch (type) {
     case ALBUMS_LOAD: {
       return payload;
