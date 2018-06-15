@@ -53,14 +53,12 @@ class NewAlbum extends Component {
     const { title, description, posterImage } = this.state;
 
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <input placeholder="title" value={title} onChange={this.handleChange}/>
-          <input placeholder="description" value={description} onChange={this.handleChange}/>
-          <input placeholder="posterImage" value={posterImage} onChange={this.handleChange}/>
-          <button type="submit">Add Album</button>
-        </form>
-      </div>
+      <form onSubmit={this.handleSubmit}>
+        <input placeholder="title" value={title} onChange={this.handleChange}/>
+        <input placeholder="description" value={description} onChange={this.handleChange}/>
+        <input placeholder="posterImage" value={posterImage} onChange={this.handleChange}/>
+        <button type="submit">Add Album</button>
+      </form>
     );
   }
 }
