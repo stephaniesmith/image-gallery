@@ -9,11 +9,11 @@ describe('Album E2E API', () => {
     let janelle = {
         title: 'Dirty Computer',
         description: 'The most awesome',
-        posterImage: 'https://upload.wikimedia.org/wikipedia/en/thumb/0/0b/DirtyComputer.png/220px-DirtyComputer.png'
+        posterImage: 'http://www.domusfelium.co.uk/faith_kitten_blue_silver_8_weeks.jpg'
     };
 
     it('posts an album', () => {
-        return request.post('/albums')
+        return request.post('/api/albums')
             .send(janelle)
             .then(({ body }) => {
                 const { _id, __v } = body;
@@ -29,7 +29,7 @@ describe('Album E2E API', () => {
     });
 
     it('gets all albums', () => {
-        return request.get('/albums')
+        return request.get('/api/albums')
             .then(({ body }) => {
                 assert.deepEqual(body, [janelle]);
             });

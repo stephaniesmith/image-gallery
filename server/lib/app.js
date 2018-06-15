@@ -15,7 +15,7 @@ const albums = require('./routes/albums');
 
 app.use(express.json());
 
-app.use('/albums', albums);
+app.use('/api/albums', albums);
 
 app.use(errorHandler());
 
