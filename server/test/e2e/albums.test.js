@@ -7,8 +7,8 @@ describe('Album E2E API', () => {
     before(() => dropCollection('albums'));
 
     let janelle = {
-        title: 'Dirty Computer',
-        description: 'The most awesome',
+        title: 'Kitten',
+        description: 'Something cute',
         posterImage: 'http://www.domusfelium.co.uk/faith_kitten_blue_silver_8_weeks.jpg'
     };
 
