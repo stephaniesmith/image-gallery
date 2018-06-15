@@ -12,7 +12,6 @@ export function loadAlbums() {
   return (dispatch) => {
     return getAllAlbums()
       .then(albums => {
-        console.log('albums', albums);
         dispatch({
           type: ALBUMS_LOAD,
           payload: albums
@@ -22,8 +21,13 @@ export function loadAlbums() {
 }
 
 export function createAlbum(album) {
-  return {
-    type: ALBUM_ADD,
-    payload: postAlbum(album)
+  return (dispatch) => {
+    return postAlbum(album)
+      .then(NewAlbum => {
+        dispatch({
+          type: ALBUM_ADD,
+          payload: NewAlbum
+        });
+      });
   };
 }
