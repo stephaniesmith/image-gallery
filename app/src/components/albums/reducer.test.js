@@ -11,4 +11,15 @@ describe('Albums Reducer', () =>{
     const state = albums(undefined, {});
     expect(state).toEqual([]);
   });
+
+  it('loads all albums', () => {
+    const data = { title: 'title', description: 'description', posterImage: 'url' };
+
+    const state = albums([], {
+      type: ALBUMS_LOAD,
+      payload: data
+    });
+
+    expect(state).toEqual(data)
+  });
 });
