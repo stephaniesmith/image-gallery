@@ -1,7 +1,13 @@
 :local(.album) {
-  height: 33vw;
+  height: 100vw;
   border: salmon solid 5px;
   img {
     width: 100%;
+  }
+  @media (min-width: 600px) {
+    height: 50vw;
+  }
+  @media (min-width: 1050px) {
+    height: 33vw;
   }
 }
