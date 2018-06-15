@@ -1,6 +1,6 @@
 import { get, post } from './request';
 
-const URL = 'http://localhost:3000/api';
+const URL = '/api';
 const ALBUMS_URL = `${URL}/albums`;
 
 export const getAllAlbums = () => get(ALBUMS_URL);
