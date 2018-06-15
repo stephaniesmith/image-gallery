@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './album.css';
 
@@ -7,16 +8,21 @@ import styles from './album.css';
 export default class Album extends Component {
   
   static propTypes = {
-    album: PropTypes.object.isRequired
+    _id: PropTypes.object.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    posterImage: PropTypes.string.isRequired
   };
 
   render() {
-    const { title, posterImage } = this.props.album;
+    const { title, posterImage, _id } = this.props;
 
     return (
       <div className={styles.album}>
-        <img src={posterImage}/>
-        <h2>{title}</h2>
+        <Link to={`/albums/${_id}`}>
+          <img src={posterImage}/>
+          <h2>{title}</h2>
+        </Link>
       </div>
     );
   }

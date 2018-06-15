@@ -4,6 +4,7 @@ import Header from './Header';
 import Footer from './Footer';
 import Albums from '../albums/Albums';
 import NewAlbum from '../albums/NewAlbum';
+import AlbumDetail from '../albums/AlbumDetail';
 import About from '../about/About';
 import Images from '../images/Images';
 
@@ -20,6 +21,7 @@ export default class App extends Component {
             <Switch>
               <Route exact path="/" component={Albums}/>
               <Route path="/albums/new" component={NewAlbum}/>
+              <Route path="/albums/:id" component={AlbumDetail}/>
               <Route path="/albums" component={Albums}/>
               <Route path="/about" component={About}/>
               <Route path="/images" component={Images}/>
