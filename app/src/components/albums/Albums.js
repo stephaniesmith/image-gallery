@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getAlbums } from './reducers';
 import { loadAlbums } from './actions';
-import Thumbnail from './Thumbnail';
+import Thumbnail from '../thumbnail/Thumbnail';
 import styles from './Albums.css';
 
 class Albums extends Component {
