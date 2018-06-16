@@ -19,7 +19,6 @@ class Album extends Component {
     return (
       <div className={styles.album}>
         <Link to={`/albums/${_id}`} onClick={loadAlbum}>
-          <h1>{_id}</h1>
           <img src={posterImage}/>
           <h2>{title}</h2>
         </Link>
