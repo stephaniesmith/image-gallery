@@ -1,6 +1,9 @@
 :local(.thumbnail) {
   height: 100vw;
   border: salmon solid 5px;
+  max-width: 350px;
+  max-height: 350px;
+  margin: auto;
   img {
     width: 100%;
   }
