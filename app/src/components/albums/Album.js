@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { loadAlbum } from './actions';
 import PropTypes from 'prop-types';
 import styles from './album.css';
 
 
 
-export default class Album extends Component {
+class Album extends Component {
   
   static propTypes = {
-    _id: PropTypes.object.isRequired,
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    posterImage: PropTypes.string.isRequired
+    album: PropTypes.object.isRequired
   };
 
   render() {
-    const { title, posterImage, _id } = this.props;
+    const { title, posterImage, _id, loadAlbum } = this.props.album;
 
     return (
       <div className={styles.album}>
-        <Link to={`/albums/${_id}`}>
+        <Link to={`/albums/${_id}`} onClick={loadAlbum}>
+          <h1>{_id}</h1>
           <img src={posterImage}/>
           <h2>{title}</h2>
         </Link>
@@ -27,5 +27,10 @@ export default class Album extends Component {
     );
   }
 }
+
+export default connect(
+  state => ({ _id: state._id }),
+  { loadAlbum }
+)(Album);
 
 

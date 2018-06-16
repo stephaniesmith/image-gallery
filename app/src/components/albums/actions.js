@@ -1,6 +1,8 @@
 import {
   ALBUMS_LOAD,
-  ALBUM_ADD
+  ALBUM_ADD,
+  ALBUM_LOAD,
+  getAlbums
 } from './reducers';
 
 import {
@@ -29,5 +31,16 @@ export function createAlbum(album) {
           payload: NewAlbum
         });
       });
+  };
+}
+
+export function loadAlbum() {
+  return (dispatch, getState) => {
+    const state = getState();
+    const albums = getAlbums(state);
+    dispatch({
+      type: ALBUM_LOAD,
+      payload: albums
+    });
   };
 }

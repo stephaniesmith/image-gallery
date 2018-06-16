@@ -25,7 +25,7 @@ class Albums extends Component {
     return (
       <div className={styles.albums}>
         <AddAlbum/>
-        {albums.map(album => <Album key={album._id} {...album}/>)}
+        {albums.map(album => <Album key={album._id} album={album}/>)}
       </div>
     );
   }
