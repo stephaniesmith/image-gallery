@@ -1,4 +1,4 @@
-:local(.album) {
+:local(.thumbnail) {
   height: 100vw;
   border: salmon solid 5px;
   img {
