@@ -8,11 +8,11 @@ module.exports = router
         ({ body }) => {
             return Image.create(body);
         }
-    ));
+    ))
 
-    // .get('/', respond(
-    //     () => {
-    //         return Album.find()
-    //             .lean();
-    //     }
-    // ));
+    .get('/', respond(
+        () => {
+            return Image.find()
+                .lean();
+        }
+    ));
