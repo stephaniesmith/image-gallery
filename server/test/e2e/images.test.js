@@ -19,9 +19,15 @@ describe('Image E2E API', () => {
         url: 'http://www.domusfelium.co.uk/faith_kitten_blue_silver_8_weeks.jpg',
     };
 
-    let janelle = {
+    const janelle = {
         title: 'Kitten',
         description: 'Something cute',
+        posterImage: 'http://www.domusfelium.co.uk/faith_kitten_blue_silver_8_weeks.jpg'
+    };
+
+    const someAlbum = {
+        title: 'this is an album',
+        description: 'album stuff',
         posterImage: 'http://www.domusfelium.co.uk/faith_kitten_blue_silver_8_weeks.jpg'
     };
 
@@ -31,6 +37,14 @@ describe('Image E2E API', () => {
             .then(({ body }) => {
                 janelle._id = body._id;
                 KittenOne.albumId = body._id;
+            });
+    });
+
+    before(() => {
+        return request.post('/api/albums')
+            .send(someAlbum)
+            .then(({ body }) => {
+                someAlbum._id = body._id;
                 KittenTwo.albumId = body._id;
             });
     });
@@ -67,8 +81,12 @@ describe('Image E2E API', () => {
             });
     });
 
-    // it('gets images by album id', () => {
-
-    // });
+    it('gets images by album id', () => {
+        return request.get(`/api/images?albumId=${someAlbum._id}`)
+            .then(({ body }) => {
+                console.log('BODY!!!!', body);
+                assert.deepEqual(body, [KittenTwo]);
+            });
+    });
 
 });

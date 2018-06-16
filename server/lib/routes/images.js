@@ -11,8 +11,7 @@ module.exports = router
     ))
 
     .get('/', respond(
-        () => {
-            return Image.find()
-                .lean();
+        ({ query }) => {
+            return query ? Image.find(query).lean() : Image.find().lean();
         }
     ));
