@@ -35,10 +35,11 @@ export function createAlbum(album) {
 }
 
 export function loadAlbum() {
+  console.log('HERE!');
   return (dispatch, getState) => {
     const state = getState();
     const albums = getAlbums(state);
-    dispatch({
+    return dispatch({
       type: ALBUM_LOAD,
       payload: albums
     });
