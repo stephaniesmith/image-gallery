@@ -7,12 +7,13 @@ import {
 
 import {
   getAllAlbums,
-  postAlbum
+  postAlbum,
+  getImagesByAlbum
 } from '../../services/api';
 
 export function loadAlbums() {
   return (dispatch) => {
-    return getAllAlbums()
+    getAllAlbums()
       .then(albums => {
         dispatch({
           type: ALBUMS_LOAD,
@@ -24,7 +25,7 @@ export function loadAlbums() {
 
 export function createAlbum(album) {
   return (dispatch) => {
-    return postAlbum(album)
+    postAlbum(album)
       .then(NewAlbum => {
         dispatch({
           type: ALBUM_ADD,
@@ -38,12 +39,20 @@ export function loadAlbum(albumId) {
   return (dispatch, getState) => {
     const state = getState();
     const albums = getAlbums(state);
-    return dispatch({
+    dispatch({
       type: ALBUM_LOAD,
       payload: { 
         albums,
         albumId
       }
     });
+
+    getImagesByAlbum(albumId)
+      .then(images => {
+        dispatch({
+          type: IMAGES_LOAD,
+          payload: images
+        });
+      });
   };
 }
