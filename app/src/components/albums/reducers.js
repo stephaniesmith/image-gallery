@@ -21,7 +21,8 @@ export function albums(state = [], { type, payload }) {
 export function album(state = {}, { type, payload }) {
   switch (type) {
     case ALBUM_LOAD: {
-      const selectedAlbum = payload.filter(eachAlbum => eachAlbum._id === state._id);
+      const { albums, albumId } = payload;
+      const selectedAlbum = albums.filter(eachAlbum => eachAlbum._id === albumId);
       return selectedAlbum[0];
     }
     default:
