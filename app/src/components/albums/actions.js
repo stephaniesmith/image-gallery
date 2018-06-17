@@ -34,13 +34,16 @@ export function createAlbum(album) {
   };
 }
 
-export function loadAlbum() {
+export function loadAlbum(albumId) {
   return (dispatch, getState) => {
     const state = getState();
     const albums = getAlbums(state);
     return dispatch({
       type: ALBUM_LOAD,
-      payload: albums
+      payload: { 
+        albums,
+        albumId
+      }
     });
   };
 }
