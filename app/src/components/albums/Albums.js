@@ -27,7 +27,7 @@ class Albums extends Component {
         <Link to="/albums/new">
           <Thumbnail url="https://dharmamerchantservices.com/wp-content/uploads/2015/06/add.png" title=""/>
         </Link>
-        {albums.map(album => <Link key={album._id} to={`/albums/${album._id}`} id={album._id}>
+        {albums.map(album => <Link key={album._id} to={`/albums/${album._id}/images/thumbnail`} id={album._id}>
           <Thumbnail url={album.posterImage} title={album.title}/>
         </Link>
         )}

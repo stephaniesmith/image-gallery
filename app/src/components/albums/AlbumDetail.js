@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getAlbum, getImages } from './reducers';
 import { loadAlbum } from './actions';
 import Thumbnail from '../thumbnail/Thumbnail';
@@ -29,6 +30,9 @@ class AlbumDetail extends Component {
         {description ? <p>{description}</p> : <p>No description</p>}
         {posterImage ? <img src={posterImage}/> : <h1>No Cover Image</h1>}
         <div className={styles.albums}>
+          <Link to={`/albums/${album._id}/images/new`}>
+            <Thumbnail url="https://dharmamerchantservices.com/wp-content/uploads/2015/06/add.png" title=""/>
+          </Link>
           {images && images.map(image => <Thumbnail
             key={image._id}
             url={image.url}
