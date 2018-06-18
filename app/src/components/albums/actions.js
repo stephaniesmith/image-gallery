@@ -9,7 +9,8 @@ import {
 import {
   getAllAlbums,
   postAlbum,
-  getImagesByAlbum
+  getImagesByAlbum,
+  getAllImages
 } from '../../services/api';
 
 export function loadAlbums() {
@@ -49,6 +50,18 @@ export function loadAlbum(albumId) {
     });
 
     getImagesByAlbum(albumId)
+      .then(images => {
+        dispatch({
+          type: IMAGES_LOAD,
+          payload: images
+        });
+      });
+  };
+}
+
+export function loadImages() {
+  return (dispatch) => {
+    getAllImages()
       .then(images => {
         dispatch({
           type: IMAGES_LOAD,
