@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs');
 const schema = new Schema({
     name: RequiredString,
     email: RequiredString,
-    hash: String
+    hash: RequiredString
 });
 
 schema.methods = {
