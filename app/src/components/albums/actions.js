@@ -2,6 +2,7 @@ import {
   ALBUMS_LOAD,
   ALBUM_ADD,
   ALBUM_LOAD,
+  IMAGES_LOAD,
   getAlbums
 } from './reducers';
 

@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getAlbum } from './reducers';
+import { getAlbum, getImages } from './reducers';
 import { loadAlbum } from './actions';
-// import Thumbnail from '../thumbnail/Thumbnail';
+import Thumbnail from '../thumbnail/Thumbnail';
+import styles from './Albums.css';
 
 class AlbumDetail extends Component {
 
   static propTypes = {
     album: PropTypes.object,
     images: PropTypes.array,
-    match: PropTypes.object
+    match: PropTypes.object,
+    loadAlbum: PropTypes.func.isRequired
   };
 
   componentDidMount() {
-    console.log(this.props.match.params.id);
     this.props.loadAlbum(this.props.match.params.id);
-    //get the images by albumId
   }
 
   render() {
@@ -26,18 +26,23 @@ class AlbumDetail extends Component {
     return (
       <div>
         {title ? <h1>{title}</h1> : <h1>No title</h1>}
-        {description ? <h1>{description}</h1> : <h1>No description</h1>}
+        {description ? <p>{description}</p> : <p>No description</p>}
         {posterImage ? <img src={posterImage}/> : <h1>No Cover Image</h1>}
-        {/* {images.map(image => <Thumbnail
-          key={image._id}
-          url={image.url}
-          title={image.title}/>)} */}
+        <div className={styles.albums}>
+          {images && images.map(image => <Thumbnail
+            key={image._id}
+            url={image.url}
+            title={image.title}/>)}
+        </div>
       </div>
     );
   }
 }
 
 export default connect(
-  state => ({ album: getAlbum(state) }),
+  state => ({ 
+    album: getAlbum(state),
+    images: getImages(state)
+  }),
   { loadAlbum }
 )(AlbumDetail);
