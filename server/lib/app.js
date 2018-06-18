@@ -11,11 +11,13 @@ app.use(cors());
 // app.use(sslRedirect());
 
 const albums = require('./routes/albums');
+const images = require('./routes/images');
 
 
 app.use(express.json());
 
 app.use('/api/albums', albums);
+app.use('/api/images', images);
 
 app.use(errorHandler());
 

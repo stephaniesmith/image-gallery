@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getAlbums } from './reducers';
 import { loadAlbums } from './actions';
-import Album from './Album';
-import AddAlbum from './AddAlbum';
+import Thumbnail from '../thumbnail/Thumbnail';
 import styles from './Albums.css';
 
 class Albums extends Component {
@@ -24,8 +24,14 @@ class Albums extends Component {
     
     return (
       <div className={styles.albums}>
-        <AddAlbum/>
-        {albums.map(album => <Album key={album._id} album={album}/>)}
+        <Link to="/albums/new">
+          <Thumbnail url="https://dharmamerchantservices.com/wp-content/uploads/2015/06/add.png" title=""/>
+        </Link>
+        {albums.map(album => <Link key={album._id} to={`/albums/${album._id}/images/thumbnail`}>
+          <Thumbnail url={album.posterImage} title={album.title}/>
+        </Link>
+        )}
+
       </div>
     );
   }
