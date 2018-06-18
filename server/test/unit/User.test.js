@@ -12,4 +12,12 @@ describe('User model', () => {
         data._id = steven._id;
         assert.deepEqual(steven.toJSON(), data);
     });
+
+    it('username is required', () => {
+        const user = new User({});
+        const errors = user.validateSync();
+        // assert.equal(errors.errors.username.path, 'username');
+        assert.equal(errors.errors.name.kind, 'required');
+        assert.equal(errors.errors.email.kind, 'required');
+    });
 });
