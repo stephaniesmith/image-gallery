@@ -6,7 +6,16 @@ export default class Footer extends Component {
   render() {
     return (
       <header className={styles.header}>
-        HEADER!
+        <nav>
+          <ul>
+            <li><a href="/albums">
+              Albums</a></li>
+            <li><a href="/about">
+              About</a></li>
+            <li><a href="/images">
+              Images</a></li>
+          </ul>
+        </nav>
       </header>
     );
   }
