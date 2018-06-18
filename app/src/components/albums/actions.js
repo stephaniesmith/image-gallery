@@ -3,14 +3,16 @@ import {
   ALBUM_ADD,
   ALBUM_LOAD,
   IMAGES_LOAD,
-  getAlbums
+  getAlbums,
+  IMAGE_ADD
 } from './reducers';
 
 import {
   getAllAlbums,
   postAlbum,
   getImagesByAlbum,
-  getAllImages
+  getAllImages,
+  postImage
 } from '../../services/api';
 
 export function loadAlbums() {
@@ -66,6 +68,18 @@ export function loadImages() {
         dispatch({
           type: IMAGES_LOAD,
           payload: images
+        });
+      });
+  };
+}
+
+export function createImage(image) {
+  return (dispatch) => {
+    postImage(image)
+      .then(NewImage => {
+        dispatch({
+          type: IMAGE_ADD,
+          payload: NewImage
         });
       });
   };
