@@ -7,7 +7,7 @@ import { loadAlbums, createAlbum } from './actions';
 import { ALBUMS_LOAD, ALBUM_ADD } from './reducers';
 import { getAllAlbums, postAlbum } from '../../services/api';
 
-describe.skip('albums actions', () => {
+describe.only('albums actions', () => {
 
   it('loads albums', () => {
     const promise = Promise.resolve();

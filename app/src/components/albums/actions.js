@@ -16,26 +16,16 @@ import {
 } from '../../services/api';
 
 export function loadAlbums() {
-  return (dispatch) => {
-    getAllAlbums()
-      .then(albums => {
-        dispatch({
-          type: ALBUMS_LOAD,
-          payload: albums
-        });
-      });
+  return {
+    type: ALBUMS_LOAD,
+    payload: getAllAlbums()
   };
 }
 
 export function createAlbum(album) {
-  return (dispatch) => {
-    postAlbum(album)
-      .then(NewAlbum => {
-        dispatch({
-          type: ALBUM_ADD,
-          payload: NewAlbum
-        });
-      });
+  return {
+    type: ALBUM_ADD,
+    payload: postAlbum(album)
   };
 }
 
