@@ -40,8 +40,11 @@ module.exports = router
                     return user.save();
                 })
                 .then(user => {
+                    return Promise.all([user, sign(user)]);
+                })
+                .then(([user, token]) => {
                     return {
-                        token: sign(user),
+                        token: token,
                         _id: user._id,
                         name: user.name
                     };
@@ -62,7 +65,14 @@ module.exports = router
                             error: 'Invalid email or password'
                         };
                     }
-                    return { token: sign(user) };
+                    return Promise.all([user, sign(user)]);
+                })
+                .then(([user, token]) => {
+                    return {
+                        token: token,
+                        _id: user._id,
+                        name: user.name
+                    };
                 });
         }
     ));

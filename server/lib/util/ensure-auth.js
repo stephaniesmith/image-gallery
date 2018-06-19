@@ -1,20 +1,20 @@
 const tokenService = require('./token-service');
 
-module.exports = function() {
-    return(req, res, next) => {
-        const token = req.get('Authorization');
-        try {
-            if(!token) return next({ status: 400, error: 'No token.' });
+module.exports = function getEnsureAuth(log = console.log) {
+    return function ensureAuth(req, res, next) {
+        const token = req.get('Authorization') || req.get('authorization');
+        if(!token) return next({ status: 401, error: 'No Authorization Found.' });
 
-            const payload = tokenService.verify(token);
+        tokenService.verify(token)
+            .then(payload => {
+                req.user = payload;
+                next();
+            }, () => {
+                next({ code: 401, error: 'Authorization Failed' });
+            })
+            .catch(err => {
+                log('unexpected next() failure', err);
+            });
 
-            req.user = payload;
-
-            next();
-        }
-
-        catch(err) {
-            next({ status: 401, error: 'Invalid Token' });
-        }
     };
 };

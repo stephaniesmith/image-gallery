@@ -1,18 +1,17 @@
 require('dotenv').config();
-const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken-promisified');
 const APP_SECRET = process.env.APP_SECRET;
 
 module.exports = {
     sign(user) {
         const payload = {
-            id: user._id,
-            role: user.role
+            id: user._id
         };
 
-        return jwt.sign(payload, APP_SECRET);
+        return jwt.signAsync(payload, APP_SECRET);
     },
 
     verify(token) {
-        return jwt.verify(token, APP_SECRET);
+        return jwt.verifyAsync(token, APP_SECRET);
     }
 };
