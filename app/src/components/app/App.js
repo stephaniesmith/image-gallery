@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { tryLoadUser } from '../auth/actions';
+import { getCheckedAuth } from '../auth/reducers';
 import Header from './Header';
 import Albums from '../albums/Albums';
 import NewAlbum from '../albums/NewAlbum';
@@ -10,7 +13,7 @@ import NewImage from '../images/NewImage';
 
 import styles from './App.css';
 
-export default class App extends Component {
+class App extends Component {
   render() {
     return (
       
@@ -34,3 +37,8 @@ export default class App extends Component {
     );
   }
 }
+
+export default connect(
+  state => ({ checkedAuth: getCheckedAuth(state) }),
+  { tryLoadUser }
+)(App);
