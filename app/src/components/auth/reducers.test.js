@@ -1,6 +1,7 @@
 import {
   user,
-  USER_AUTH
+  USER_AUTH,
+  LOGOUT
 } from './reducers';
 
 describe('user reducer', () => {
@@ -16,5 +17,9 @@ describe('user reducer', () => {
     expect(state).toBe(data);
   });
 
+  it('clears user on logout', () => {
+    const state = user({}, { type: LOGOUT });
+    expect(state).toBe(null);
+  });
 
 });
