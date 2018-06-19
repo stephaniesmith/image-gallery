@@ -23,7 +23,7 @@ export default class Credentials extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.submit(this.state);
-  }
+  };
 
   render() {
     const { action, allowName = false } = this.props;

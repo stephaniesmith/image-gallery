@@ -23,7 +23,7 @@ class Auth extends Component {
         <Switch>
           <Route path="/auth/signin" component={() => (
             <div>
-              <p>Don't have an account? <Link to="/auth/signup">Sign Up</Link></p>
+              <p>{'Don\'t have an account?'} <Link to="/auth/signup">Sign Up</Link></p>
               <Credentials action="Sign In" submit={signin}/>
             </div>
           )}/>
