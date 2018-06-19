@@ -1,4 +1,5 @@
 import { USER_AUTH, LOGOUT, CHECKED_AUTH } from './reducers';
+import { getStoredUser, clearStoredUser } from '../../services/request';
 
 import {
   signup as signupApi,
