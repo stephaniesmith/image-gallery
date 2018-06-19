@@ -4,6 +4,8 @@ jest.mock('../../services/api', () => ({
   verify: jest.fn()
 }));
 
+import { sigunup } from './actions';
+import { USE_AUTH } from './reducers';
 import {
   sigunup as signupSvc
 } from '../../services/api';
