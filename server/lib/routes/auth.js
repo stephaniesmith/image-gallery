@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { respond } = require('./route-helper');
+const { respond } = require('./route-helpers');
 const User = require('../models/User');
 const { sign } = require('../util/token-service');
 const createEnsureAuth = require('../util/ensure-auth');
@@ -7,7 +7,7 @@ const createEnsureAuth = require('../util/ensure-auth');
 
 const hasEmailAndPassword = ({ body }, res, next) => {
     const { email, password, name } = body;
-    if(!email || !password || name ) {
+    if(!email || !password || !name ) {
         throw {
             status: 401,
             error: 'Email, name, and password required'
