@@ -33,7 +33,6 @@ function request(url, options = {}, data) {
     if(!options.headers) options.headers = {};
     options.headers.Authorization = token;
   }
-
   return fetch(url, options)
     .then(response => [response.ok, response.json()])
     .then(([ok, json]) => {

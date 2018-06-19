@@ -10,7 +10,7 @@ require('./models/register-plugin');
 app.use(morgan('dev'));
 app.use(cors());
 
-const auth = require('./routes/auth')
+const auth = require('./routes/auth');
 const albums = require('./routes/albums');
 const images = require('./routes/images');
 
