@@ -5,7 +5,7 @@ import {
   getUser
 } from './reducers';
 
-describe.skip('user reducer', () => {
+describe('user reducer', () => {
 
   it('initializes to null', () => {
     const state = user(undefined, {});
