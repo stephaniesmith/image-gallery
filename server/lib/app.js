@@ -8,7 +8,6 @@ require('./models/register-plugin');
 
 app.use(morgan('dev'));
 app.use(cors());
-// app.use(sslRedirect());
 
 const albums = require('./routes/albums');
 const images = require('./routes/images');
