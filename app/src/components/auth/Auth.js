@@ -20,7 +20,19 @@ class Auth extends Component {
     return (
       <div>
         <Switch>
-          
+          <Route path="/auth/signin" component={() => (
+            <div>
+              <p>Don't have an account? <Link to="/auth/signup">Sign Up</Link></p>
+              <Credentials action="Sign In" submit={signin}/>
+            </div>
+          )}/>
+          <Route path="/auth/signup" component={() => (
+            <div>
+              <p>Already have an account? <Link to="/auth/signin">Sign In</Link></p>
+              <Credentials action="Sign Up" submit={signup} allowName={true}/>
+            </div>
+          )}/>
+          <Redirect to="/auth/signin"/>
         </Switch>
       </div>
     );
