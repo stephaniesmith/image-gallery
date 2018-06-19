@@ -84,7 +84,6 @@ describe('Image E2E API', () => {
     it('gets images by album id', () => {
         return request.get(`/api/images?albumId=${someAlbum._id}`)
             .then(({ body }) => {
-                console.log('BODY!!!!', body);
                 assert.deepEqual(body, [KittenTwo]);
             });
     });
