@@ -1,8 +1,7 @@
 const router = require('express').router;
 const { respond } = require('./route-helpers');
 const User = require('../models/User');
-const { signup } = require('../util/token-service');
-const { signin } = require('../util/token-service');
+const { sign } = require('../util/token-service');
 const createEnsureAuth = require('../util/ensure-auth');
 
 const hasEmailandPassword = ({ body }, res, next) => {
@@ -42,7 +41,7 @@ module.exports = router
 
                 .then(user => {
                     return {
-                        token: signup(user),
+                        token: sign(user),
                         _id: user._id,
                     };
 
@@ -63,7 +62,7 @@ module.exports = router
                             error: 'Invalid email or password'
                         };
                     }
-                    return { token: signin(user) };
+                    return { token: sign(user) };
                 });
         }
     ));
