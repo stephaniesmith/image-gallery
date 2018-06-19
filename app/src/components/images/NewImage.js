@@ -28,7 +28,7 @@ class NewImage extends Component {
 
   componentDidMount(){
     this.setState({ 
-      edit: { AlbumId: this.props.match.params.id, ...this.state.edit }
+      edit: { albumId: this.props.match.params.id, ...this.state.edit }
     });
   }
 
@@ -64,7 +64,7 @@ class NewImage extends Component {
         <input placeholder="title" value={title} onChange={this.handleChange}/>
         <input placeholder="description" value={description} onChange={this.handleChange}/>
         <input placeholder="url" value={url} onChange={this.handleChange}/>
-        <button type="submit">Add Album</button>
+        <button type="submit">Add Image</button>
       </form>
     );
   }

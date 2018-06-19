@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { getAlbum, getImages } from './reducers';
 import { loadAlbum } from './actions';
-import Thumbnail from '../thumbnail/Thumbnail';
-import styles from './Albums.css';
+import NewImage from '../images/NewImage';
+import AlbumImages from '../images/AlbumImages';
 
 class AlbumDetail extends Component {
 
@@ -21,24 +21,26 @@ class AlbumDetail extends Component {
   }
 
   render() {
-    const { images, album } = this.props;
+    const { album } = this.props;
     const { title, description, posterImage } = album;
     
     return (
-      <div>
-        {title ? <h1>{title}</h1> : <h1>No title</h1>}
-        {description ? <p>{description}</p> : <p>No description</p>}
-        {posterImage ? <img src={posterImage}/> : <h1>No Cover Image</h1>}
-        <div className={styles.albums}>
-          <Link to={`/albums/${album._id}/images/new`}>
-            <Thumbnail url="https://dharmamerchantservices.com/wp-content/uploads/2015/06/add.png" title=""/>
-          </Link>
-          {images && images.map(image => <Thumbnail
-            key={image._id}
-            url={image.url}
-            title={image.title}/>)}
+      <Router>
+        <div>
+          {title ? <h1>{title}</h1> : <h1>No title</h1>}
+          {description ? <p>{description}</p> : <p>No description</p>}
+          {posterImage ? <img src={posterImage}/> : <h1>No Cover Image</h1>}
+          <div>
+            <Switch>
+              <Route path={`/albums/${album._id}/images/thumbnail`} component={AlbumImages}/>
+              {/* <Route path={`/albums/${album._id}/images/gallery`} component={imagegallery}/>
+              <Route path={`/albums/${album._id}/images/list`} component={imagelist}/> */}
+              <Route path={`/albums/${album._id}/images/new`} component={NewImage}/>
+              <Redirect to={`/albums/${album._id}/images/thumbnail`}/>
+            </Switch>
+          </div>
         </div>
-      </div>
+      </Router>
     );
   }
 }
