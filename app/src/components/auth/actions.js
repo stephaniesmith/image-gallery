@@ -1,4 +1,4 @@
-import { USER_AUTH } from './reducers';
+import { USER_AUTH, LOGOUT } from './reducers';
 
 import {
   signup as signupApi,
@@ -12,3 +12,4 @@ const makeAuth = api => credentials => ({
 
 export const signup = makeAuth(signupApi);
 export const signin = makeAuth(signinApi);
+export const logout = () => ({ type: LOGOUT });
