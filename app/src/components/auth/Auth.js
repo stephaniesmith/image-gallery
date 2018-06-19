@@ -4,6 +4,7 @@ import { Switch, Route, Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signin, signup } from './actions';
 import { getUser } from './reducers';
+import Credentials from './Credentials';
 
 class Auth extends Component {
   static propTypes = {
@@ -15,7 +16,7 @@ class Auth extends Component {
 
   render() {
     const { user, signin, signup, location } = this.props;
-    const redirect = location.state ? loaction.state.from : '/';
+    const redirect = location.state ? location.state.from : '/';
     if(user) return <Redirect to={redirect}/>;
     return (
       <div>

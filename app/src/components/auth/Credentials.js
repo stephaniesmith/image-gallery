@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import FormControl from './FormControl';
 
 export default class Credentials extends Component {
 
