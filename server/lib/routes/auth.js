@@ -1,9 +1,10 @@
-const router = require('express').Router();
-const { respond } = require('./route-helpers');
+const Router = require('express').Router;
+const router = Router();
 const User = require('../models/User');
+const { respond } = require('./route-helpers');
 const { sign } = require('../util/token-service');
 const createEnsureAuth = require('../util/ensure-auth');
-
+const bodyParser = require('body-parser').json();
 
 const hasEmailAndPassword = ({ body }, res, next) => {
     const { email, password } = body;
@@ -21,7 +22,7 @@ module.exports = router
         () => Promise.resolve({ verified: true })
     ))
 
-    .post('/signup', hasEmailAndPassword, respond(
+    .post('/signup', bodyParser, hasEmailAndPassword, respond(
         ({ body }) => {
             const { name, email, password } = body;
             delete body.password;
@@ -49,7 +50,7 @@ module.exports = router
         }
     ))
 
-    .post('/signin', hasEmailAndPassword, respond(
+    .post('/signin', bodyParser, hasEmailAndPassword, respond(
         ({ body }) => {
             const { email, password } = body;
             delete body.password;
