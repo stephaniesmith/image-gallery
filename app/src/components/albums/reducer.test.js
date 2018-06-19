@@ -50,9 +50,12 @@ describe('Album Reducer', () =>{
     const data = { _id: 1, title: 'title', description: 'description', posterImage: 'url' };
     const moreData = { _id: 2, title: 'newTitle', description: 'newDescription', posterImage: 'newUrl' };
 
-    const state = album({ _id: 1 }, {
+    const state = album({}, {
       type: ALBUM_LOAD,
-      payload: [data, moreData]
+      payload: {
+        albums: [data, moreData],
+        albumId: 1
+      }
     });
 
     expect(state).toEqual(data);
