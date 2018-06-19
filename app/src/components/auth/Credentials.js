@@ -25,13 +25,26 @@ export default class Credentials extends Component {
   }
 
   render() {
-    const { action, allowName = false } this.props;
+    const { action, allowName = false } = this.props;
     const { name, email, password } = this.state;
 
     return (
-      <div>
-        
-      </div>
+      <form onSubmit={this.handleSubmit}>
+        { allowName &&
+          <FormControl label="name">
+            <input name="name" value={name} onChange={this.handleChange}/>
+          </FormControl>
+        }
+        <FormControl label="email">
+          <input name="email" value={email} onChange={this.handleChange}/>
+        </FormControl>
+        <FormControl label="password">
+          <input type="password" name="password" value={password} onChange={this.handleChange}/>
+        </FormControl>
+        <FormControl label="password">
+          <button>{action}</button>
+        </FormControl>
+      </form>
     );
   }
 }
