@@ -11,7 +11,7 @@ import {
   signin as signinSvc
 } from '../../services/api';
 
-describe.only('auth action creators', () => {
+describe('auth action creators', () => {
 
   function testAuth(name, mockSvc, actionCreator) {
     it(`creates a ${name} action`, () => {

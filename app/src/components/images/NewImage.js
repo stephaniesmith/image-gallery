@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createImage } from '../albums/actions';
-import { getImages } from '../albums/reducers';
+import { getImages, getAlbum } from '../albums/reducers';
 
 
 const defaultState = {
@@ -15,7 +15,7 @@ class NewImage extends Component {
 
   static propTypes = {
     createImage: PropTypes.func.isRequired,
-    match: PropTypes.object
+    albumId: PropTypes.string.isRequired,
   };
 
   static getDerivedStateFromProps({ image }, { edit }) {
@@ -28,7 +28,7 @@ class NewImage extends Component {
 
   componentDidMount(){
     this.setState({ 
-      edit: { albumId: this.props.match.params.id, ...this.state.edit }
+      edit: { albumId: this.props.albumId, ...this.state.edit }
     });
   }
 
@@ -71,7 +71,10 @@ class NewImage extends Component {
 }
 
 export default connect(
-  state => ({ images: getImages(state) }),
+  state => ({ 
+    images: getImages(state),
+    albumId: getAlbum(state)._id
+  }),
   { createImage }
 )(NewImage);
 
