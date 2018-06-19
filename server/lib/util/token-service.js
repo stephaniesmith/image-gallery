@@ -3,11 +3,12 @@ const jwt = require('jsonwebtoken');
 const APP_SECRET = process.env.APP_SECRET || 'change this please';
 
 module.exports = {
-    signIn(user) {
+    sign(user) {
         const payload = {
             id: user._id,
+            roles: user.roles
         };
-        return jwt.signIn(payload, APP_SECRET);
+        return jwt.sign(payload, APP_SECRET);
     },
     verify(token) {
         return jwt.verify(token, APP_SECRET);

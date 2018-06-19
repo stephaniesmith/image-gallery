@@ -1,6 +1,6 @@
 const tokenService = require('./token-service');
 
-module.exports = function(){
+module.exports = function() {
     return(req, res, next) => {
         const token = req.get('token');
         try {
