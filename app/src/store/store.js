@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import promiseMiddleware from './promise-middleware';
 import { error, loading } from '../components/app/reducers';
-import { user } from '../components/auth/reducers';
+import { user, checkedAuth } from '../components/auth/reducers';
 import { albums, album, images } from '../components/albums/reducers';
 
 const rootReducer = combineReducers({
@@ -11,7 +11,8 @@ const rootReducer = combineReducers({
   images,
   user,
   error,
-  loading
+  loading,
+  checkedAuth
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
