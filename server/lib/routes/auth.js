@@ -4,7 +4,6 @@ const User = require('../models/User');
 const { respond } = require('./route-helpers');
 const { sign } = require('../util/token-service');
 const createEnsureAuth = require('../util/ensure-auth');
-const bodyParser = require('body-parser').json();
 
 const hasEmailAndPassword = ({ body }, res, next) => {
     const { email, password } = body;
@@ -22,7 +21,7 @@ module.exports = router
         () => Promise.resolve({ verified: true })
     ))
 
-    .post('/signup', bodyParser, hasEmailAndPassword, respond(
+    .post('/signup', hasEmailAndPassword, respond(
         ({ body }) => {
             const { name, email, password } = body;
             delete body.password;
@@ -50,7 +49,7 @@ module.exports = router
         }
     ))
 
-    .post('/signin', bodyParser, hasEmailAndPassword, respond(
+    .post('/signin', hasEmailAndPassword, respond(
         ({ body }) => {
             const { email, password } = body;
             delete body.password;
