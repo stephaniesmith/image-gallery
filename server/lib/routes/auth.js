@@ -6,8 +6,8 @@ const createEnsureAuth = require('../util/ensure-auth');
 
 
 const hasEmailAndPassword = ({ body }, res, next) => {
-    const { email, password, name } = body;
-    if(!email || !password || !name ) {
+    const { email, password } = body;
+    if(!email || !password) {
         throw {
             status: 401,
             error: 'Email, name, and password required'
