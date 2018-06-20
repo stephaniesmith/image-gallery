@@ -5,22 +5,24 @@ import { getAlbum, getImages } from '../albums/reducers';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styles from '../albums/Albums.css';
+import { getUser } from '../auth/reducers';
 
 class AlbumImages extends Component {
 
   static propTypes = {
     album: PropTypes.object,
     images: PropTypes.array,
+    user: PropTypes.object
   };
 
   render() {
-    const { images, album } = this.props;
+    const { images, album, user } = this.props;
 
     return (
       <div className={styles.albums}>
-        <Link to={`/albums/${album._id}/images/new`}>
+        {user && <Link to={`/albums/${album._id}/images/new`}>
           <Thumbnail url="https://dharmamerchantservices.com/wp-content/uploads/2015/06/add.png" title=""/>
-        </Link>
+        </Link>}
         {images && images.map(image => <Thumbnail
           key={image._id}
           url={image.url}
@@ -33,7 +35,8 @@ class AlbumImages extends Component {
 export default connect(
   state => ({ 
     album: getAlbum(state),
-    images: getImages(state)
+    images: getImages(state),
+    user: getUser(state)
   }),
   null
 )(AlbumImages);

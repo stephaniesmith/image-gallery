@@ -1,10 +1,11 @@
 const router = require('express').Router(); /* eslint-disable-line */
 const { respond } = require('./route-helpers');
 const Album = require('../models/Album');
+const createEnsureAuth = require('../util/ensure-auth');
 
 module.exports = router
 
-    .post('/', respond(
+    .post('/', createEnsureAuth(), respond(
         ({ body }) => {
             return Album.create(body);
         }
