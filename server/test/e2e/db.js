@@ -10,7 +10,7 @@ module.exports = {
         const collection = mongoose.connection.collections[name];
         return collection.drop()
             .catch(err => {
-                if(err.codeName !== 'NamespaceNotFound') throw err;
+                if(err.codeName !== 'NameSpaceNotFound') throw err;
             });
     }
 };
