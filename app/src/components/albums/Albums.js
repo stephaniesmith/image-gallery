@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-// import PrivateRoute from '../app/PrivateRoute';
 import { connect } from 'react-redux';
 import { getAlbums } from './reducers';
 import { loadAlbums } from './actions';
