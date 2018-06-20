@@ -5,6 +5,21 @@ const { dropCollection } = require('./db');
 describe('Album E2E API', () => {
 
     before(() => dropCollection('albums'));
+    before(() => dropCollection('users'));
+
+    let token = null;
+
+    before(() => {
+        return request
+            .post('./api/auth/signup')
+            .send({
+                name:'Post here',
+                email: 'thisisatest@test.com',
+                password: '123'
+            })
+            .then(({ body }) => token = body.token);
+
+    });
 
     let janelle = {
         title: 'Kitten',
@@ -14,6 +29,7 @@ describe('Album E2E API', () => {
 
     it('posts an album', () => {
         return request.post('/api/albums')
+            .set('authorization', token)
             .send(janelle)
             .then(({ body }) => {
                 const { _id, __v } = body;
