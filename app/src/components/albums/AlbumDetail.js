@@ -8,6 +8,7 @@ import { loadAlbum } from './actions';
 import NewImage from '../images/NewImage';
 import AlbumImages from '../images/AlbumImages';
 import ImageDetails from '../images/ImageDetails';
+import ImageGallery from '../images/ImageGallery';
 
 class AlbumDetail extends Component {
 
@@ -37,11 +38,13 @@ class AlbumDetail extends Component {
           &nbsp;
             <Link to={`/albums/${album._id}/images/list`}>Image Details</Link>
           &nbsp;
+          <Link to={`/albums/${album._id}/images/gallery`}>Image Gallery</Link>
+          &nbsp;
           </nav>
           <div>
             <Switch>
               <Route path={`/albums/${album._id}/images/thumbnail`} component={AlbumImages}/>
-              {/* <Route path={`/albums/${album._id}/images/gallery`} component={imagegallery}/> */}
+              <Route path={`/albums/${album._id}/images/gallery`} component={ImageGallery}/>
               <Route path={`/albums/${album._id}/images/list`} component={ImageDetails}/>
               <PrivateRoute path={`/albums/${album._id}/images/new`} component={NewImage}/>
               <Redirect to={`/albums/${album._id}/images/thumbnail`}/>
