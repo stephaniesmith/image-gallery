@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import PrivateRoute from '../app/PrivateRoute';
 import { getAlbum, getImages } from './reducers';
 import { loadAlbum } from './actions';
 import NewImage from '../images/NewImage';
@@ -35,7 +36,7 @@ class AlbumDetail extends Component {
               <Route path={`/albums/${album._id}/images/thumbnail`} component={AlbumImages}/>
               {/* <Route path={`/albums/${album._id}/images/gallery`} component={imagegallery}/>
               <Route path={`/albums/${album._id}/images/list`} component={imagelist}/> */}
-              <Route path={`/albums/${album._id}/images/new`} component={NewImage}/>
+              <PrivateRoute path={`/albums/${album._id}/images/new`} component={NewImage}/>
               <Redirect to={`/albums/${album._id}/images/thumbnail`}/>
             </Switch>
           </div>

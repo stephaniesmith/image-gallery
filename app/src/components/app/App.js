@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import { connect } from 'react-redux';
 import { tryLoadUser } from '../auth/actions';
 import { getCheckedAuth } from '../auth/reducers';
+import PrivateRoute from './PrivateRoute';
 import Header from './Header';
 import Albums from '../albums/Albums';
 import NewAlbum from '../albums/NewAlbum';
@@ -41,7 +42,7 @@ class App extends Component {
               <Route path="/auth" component={Auth}/>
               <Route path="/albums/new" component={NewAlbum}/>
               <Route path="/albums/:id/images/thumbnail" component={AlbumDetail}/>
-              <Route path="/albums/:id/images/new" component={NewImage}/>
+              <PrivateRoute path="/albums/:id/images/new" component={NewImage}/>
               <Route path="/albums" component={Albums}/>
               <Route path="/about" component={About}/>
               <Route path="/images" component={Images}/>
