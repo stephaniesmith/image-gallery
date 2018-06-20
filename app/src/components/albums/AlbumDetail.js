@@ -38,7 +38,7 @@ class AlbumDetail extends Component {
           &nbsp;
             <Link to={`/albums/${album._id}/images/list`}>Image Details</Link>
           &nbsp;
-          <Link to={`/albums/${album._id}/images/gallery`}>Image Gallery</Link>
+            <Link to={`/albums/${album._id}/images/gallery`}>Image Gallery</Link>
           &nbsp;
           </nav>
           <div>
