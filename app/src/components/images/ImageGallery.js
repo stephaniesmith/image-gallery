@@ -23,13 +23,16 @@ class ImageGallery extends Component {
   render() {
     const { images } = this.props;
     const { index } = this.state;
+    const { title, description, url } = images[index];
 
     return (
       <div>
         <button onClick={() => this.handleIndex(-1)} disabled={index === 0}>back</button>
         <button onClick={() => this.handleIndex(+1)} disabled={index === images.length - 1}>next</button>
         <div>
-          <img src={images[index].url}/>
+          <h2>{title}</h2>
+          <img src={url}/>
+          <p>{description}</p>
         </div>
       </div>
     );
