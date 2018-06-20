@@ -9,14 +9,27 @@ class ImageGallery extends Component {
     images: PropTypes.array,
   };
 
+  state = {
+    index: 0
+  };
+
+  handleIndex(increment) {
+    event.preventDefault();
+    const { index } = this.state;
+
+    this.setState({ index: index + increment });
+  }
+
   render() {
     const { images } = this.props;
+    const { index } = this.state;
 
     return (
       <div>
-        <button>back</button><button>next</button>
+        <button onClick={() => this.handleIndex(-1)} disabled={index === 0}>back</button>
+        <button onClick={() => this.handleIndex(+1)} disabled={index === images.length - 1}>next</button>
         <div>
-          <img src={images[0].url}/>
+          <img src={images[index].url}/>
         </div>
       </div>
     );
