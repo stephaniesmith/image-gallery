@@ -6,6 +6,21 @@ describe('Image E2E API', () => {
 
     before(() => dropCollection('images'));
     before(() => dropCollection('albums'));
+    before(() => dropCollection('users'));
+
+    let token = null;
+
+    before(() => {
+        return request
+            .post('./api/auth/signup')
+            .send({
+                name:'Post here',
+                email: 'thisisatest@test.com',
+                password: '123'
+            })
+            .then(({ body }) => token = body.token);
+
+    });
 
     let KittenOne = {
         title: 'Kitten',
@@ -33,6 +48,7 @@ describe('Image E2E API', () => {
 
     before(() => {
         return request.post('/api/albums')
+            .set('authorization', token)
             .send(janelle)
             .then(({ body }) => {
                 janelle._id = body._id;
@@ -42,6 +58,7 @@ describe('Image E2E API', () => {
 
     before(() => {
         return request.post('/api/albums')
+            .set('authorization', token)
             .send(someAlbum)
             .then(({ body }) => {
                 someAlbum._id = body._id;
@@ -51,15 +68,16 @@ describe('Image E2E API', () => {
 
     before(() => {
         return request.post('/api/images')
+            .set('authorization', token)
             .send(KittenTwo)
             .then(({ body }) => {
                 KittenTwo = body;
-                console.log('kittenTwo', KittenTwo);
             });
     });
 
     it('posts an image', () => {
         return request.post('/api/images')
+            .set('authorization', token)
             .send(KittenOne)
             .then(({ body }) => {
                 const { _id, __v } = body;
