@@ -4,6 +4,7 @@ const { dropCollection } = require('./db');
 
 describe('auth API', () => {
     before(() => dropCollection( 'users'));
+
     let token = null;
 
     beforeEach(() => {
@@ -19,7 +20,7 @@ describe('auth API', () => {
             });
     });
 
-    it('signin', () => {
+    it('signup', () => {
         assert.ok(token);
     });
 

@@ -6,7 +6,6 @@ module.exports = {
     sign(user) {
         const payload = {
             id: user._id,
-            roles: user.roles
         };
         return jwt.sign(payload, APP_SECRET);
     },
