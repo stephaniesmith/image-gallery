@@ -40,9 +40,8 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Albums}/>
               <Route path="/auth" component={Auth}/>
-              <Route path="/albums/new" component={NewAlbum}/>
+              <PrivateRoute path="/albums/new" component={NewAlbum}/>
               <Route path="/albums/:id/images/thumbnail" component={AlbumDetail}/>
-              <PrivateRoute path="/albums/:id/images/new" component={NewImage}/>
               <Route path="/albums" component={Albums}/>
               <Route path="/about" component={About}/>
               <Route path="/images" component={Images}/>
