@@ -1,5 +1,5 @@
-module.exports = function createErrorHandler(log = console.log) {
-//eslint-disable-next-line
+module.exports = function createErrorHandler(log) {
+    //eslint-disable-next-line
     return(err, req, res, next) => {
         let code = 500;
         let error = 'Internal Service Error';
