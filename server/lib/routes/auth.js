@@ -1,4 +1,5 @@
-const router = require('express').router;
+const Router = require('express').Router;
+const router = Router();
 const { respond } = require('./route-helpers');
 const User = require('../models/User');
 const { sign } = require('../util/token-service');
@@ -22,7 +23,7 @@ module.exports = router
 
     .post('./signup', hasEmailandPassword, respond(
         ({ body }) => {
-            const { email, password, name } = body;
+            const { name, email, password } = body;
             delete body.password;
 
             return User.exists({ name, email })
@@ -36,13 +37,16 @@ module.exports = router
                     const user = new User(body);
                     user.generateHash(password);
                     return user.save();
-
+                })
+                .then(user => {
+                    return Promise.all([user, sign(user)]);
                 })
 
-                .then(user => {
+                .then(([user, token]) => {
                     return {
-                        token: sign(user),
+                        token: token,
                         _id: user._id,
+                        name: user.name
                     };
 
                 });
