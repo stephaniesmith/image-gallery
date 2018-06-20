@@ -12,14 +12,28 @@
     "pretest": "npm run lint",
     "mocha": "mocha --recursive",
     "test": "npm run mocha",
-    "test:dev": "nodemon --exec 'npm run mocha'",
+    "test:watch": "npm run mocha -- -w",
     "test:unit": "nodemon --exec 'npm run mocha -- ./test/unit'",
     "test:e2e": "nodemon --exec 'npm run mocha -- ./test/e2e'",
     "start": "node server.js",
-    "start:dev": "nodemon server.js"
+    "start:watch": "nodemon server.js"
   },
-  "author": "Katlyn & Stephanie",
+  "author": "Stephanie Smith and Katlyn Tucker",
   "license": "ISC",
+  "dependencies": {
+    "babel-eslint": "^8.2.3",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "dotenv": "^5.0.1",
+    "eslint-plugin-react": "^7.9.1",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "jsonwebtoken-promisified": "^1.0.3",
+    "mongoose": "^5.0.16",
+    "morgan": "^1.9.0",
+    "validator": "^9.4.1"
+  },
   "devDependencies": {
     "chai": "^4.1.2",
     "chai-http": "^4.0.0",
@@ -27,15 +41,5 @@
     "eslint-plugin-babel": "^5.1.0",
     "mocha": "^5.1.1",
     "nodemon": "^1.17.3"
-  },
-  "dependencies": {
-    "babel-eslint": "^8.2.3",
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.18.2",
-    "eslint-plugin-react": "^7.9.1",
-    "express": "^4.16.2",
-    "jsonwebtoken-promisified": "^1.0.3",
-    "mongoose": "^4.12.3",
-    "morgan": "^1.9.0"
   }
 }
