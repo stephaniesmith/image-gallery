@@ -1,4 +1,4 @@
-module.exports = function createErrorHandler(log) {
+module.exports = function createErrorHandler(log = console.log) {
     //eslint-disable-next-line
     return(err, req, res, next) => {
         let code = 500;
