@@ -9,7 +9,7 @@ export const getAlbum = state => state.album;
 export const getImages = state => state.images;
 
 export function albums(state = [], { type, payload }) {
-  switch (type) {
+  switch(type) {
     case ALBUMS_LOAD: {
       return payload;
     }
@@ -22,7 +22,7 @@ export function albums(state = [], { type, payload }) {
 }
 
 export function album(state = {}, { type, payload }) {
-  switch (type) {
+  switch(type) {
     case ALBUM_LOAD: {
       const { albums, albumId } = payload;
       const selectedAlbum = albums.filter(eachAlbum => eachAlbum._id === albumId);
@@ -34,7 +34,7 @@ export function album(state = {}, { type, payload }) {
 }
 
 export function images(state = [], { type, payload }) {
-  switch (type) {
+  switch(type) {
     case IMAGES_LOAD: {
       return payload;
     }
