@@ -1,7 +1,7 @@
 :local(.app) {
   height: 100vh;
   display: grid;
-  grid-template-rows: 200px 1fr; 
+  grid-template-rows: 100vh 1fr; 
 
   main {
     margin: 2em;

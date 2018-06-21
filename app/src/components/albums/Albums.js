@@ -31,7 +31,6 @@ class Albums extends Component {
           <Thumbnail url={album.posterImage} title={album.title}/>
         </Link>
         )}
-
       </div>
     );
   }

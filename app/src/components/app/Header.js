@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getUser } from '../auth/reducers';
 import { logout } from '../auth/actions';
+import hero from '../app/hero.jpg';
 
 import styles from './Header.css';
 
@@ -23,6 +24,7 @@ class Header extends Component {
 
     return (
       <header className={styles.header}>
+        <img src={hero}/>
         <nav>
           <Link to="/albums">Albums</Link>
           &nbsp;

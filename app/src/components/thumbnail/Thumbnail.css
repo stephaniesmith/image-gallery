@@ -1,15 +1,18 @@
 :local(.thumbnail) {
   height: 100vw;
-  border: salmon solid 5px;
-  max-width: 350px;
-  max-height: 350px;
+  border: grey solid 1px;
+  max-width: 325px;
+  max-height: 325px;
   margin: auto;
+
   img {
     width: 100%;
   }
-  @media (min-width: 600px) {
+
+  @media (min-width: 650px) {
     height: 50vw;
   }
+
   @media (min-width: 1050px) {
     height: 33vw;
   }
