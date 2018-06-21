@@ -1,13 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,400,500,900');
+
 :local(.header) {
   width: 100vw;
   overflow: hidden;
+  font-family: 'Roboto';
+  position: relative;
   
-  /* background: teal; */
-  img{
+  img {
     height: 100vh;
+    position: absolute;
     margin-left: 50%;
     transform: translateX(-50%);
-    position: absolute;
     z-index: -1;
+  }
+
+  h1 {
+    font-weight: 900i;
+    color: white;
+    font-size: 5em;
+    width: fit-content;
+    margin: 45vh auto auto auto;
   }
 }

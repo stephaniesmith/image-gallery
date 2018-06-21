@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,400,500,900,900i');
+
 :local(.app) {
   height: 100vh;
   display: grid;
-  grid-template-rows: 100vh 1fr; 
+  grid-template-rows: 100vh 1fr;
 
   main {
     margin: 2em;
