@@ -11,7 +11,6 @@ import NewAlbum from '../albums/NewAlbum';
 import AlbumDetail from '../albums/AlbumDetail';
 import About from '../about/About';
 import Images from '../images/Images';
-import NewImage from '../images/NewImage';
 import Auth from '../auth/Auth';
 
 import styles from './App.css';
