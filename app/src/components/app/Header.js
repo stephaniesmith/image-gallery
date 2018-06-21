@@ -28,11 +28,11 @@ class Header extends Component {
         <h1>SnapShot</h1>
         <nav>
           <Link to="/albums">Albums</Link>
-          &nbsp;
+            &nbsp;
           <Link to="/about">About</Link>
-          &nbsp;
+            &nbsp;
           <Link to="/images">Images</Link>
-          &nbsp;
+            &nbsp;
           {
             user
               ? <Link to="/" onClick={this.handleLogout}>Logout</Link>
