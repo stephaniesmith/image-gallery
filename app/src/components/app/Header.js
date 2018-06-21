@@ -25,6 +25,7 @@ class Header extends Component {
     return (
       <header className={styles.header}>
         <img src={hero}/>
+        <h1>SnapShot</h1>
         <nav>
           <Link to="/albums">Albums</Link>
           &nbsp;
