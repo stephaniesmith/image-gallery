@@ -2,35 +2,36 @@
 
 :local(.header) {
   width: 100vw;
-  height: 100vh;
   font-family: 'Roboto';
-
+  display: grid;
+  grid-template-rows: 100vh 50px;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   transform: translateZ(-1px) scale(2);
+     
+    img {
+      height: 100vh;
+      position: absolute;
+      margin-left: 50%;
+      transform: translateX(-54%);
+      z-index: -1;
+      box-shadow: inset 0 -4em 15em black;
+      }
   
-  img {
-    height: 100vh;
-    position: absolute;
-    margin-left: 50%;
-    transform: translateX(-50%);
-    z-index: -1;
-    box-shadow: inset 0 -4em 15em black;
+    h1 {
+      font-weight: 900i;
+      color: white;
+      font-size: 5em;
+      width: fit-content;
+      margin: 45vh auto auto auto;
     }
 
-  h1 {
-    font-weight: 900i;
-    color: white;
-    font-size: 5em;
-    width: fit-content;
-    margin: 45vh auto auto auto;
-  }
-
   nav {
-    position: absolute;
+    background-color: aqua;
+    position: relative;
     margin: 0 auto;
     text-align: center;
   }

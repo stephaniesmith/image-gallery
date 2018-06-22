@@ -12,12 +12,12 @@ class Header extends Component {
 
   static propTypes = {
     user: PropTypes.object,
-    logout: PropTypes.func.isRequired
+    // logout: PropTypes.func.isRequired
   };
 
-  handleLogout = () => {
-    this.props.logout();
-  };
+  // handleLogout = () => {
+  //   this.props.logout();
+  // };
 
   render() {
     const { user } = this.props;
@@ -26,7 +26,9 @@ class Header extends Component {
       <header className={styles.header}>
         <img src={hero}/>
         <h1>SnapShot</h1>
-        <nav>
+        { user && <span>Hello {user.name}!</span> }
+
+        {/* <nav>
           <Link to="/albums">Albums</Link>
             &nbsp;
           <Link to="/about">About</Link>
@@ -38,8 +40,7 @@ class Header extends Component {
               ? <Link to="/" onClick={this.handleLogout}>Logout</Link>
               : <Link to="/auth">Login</Link>
           }
-        </nav>
-        { user && <span>Hello {user.name}!</span> }
+        </nav> */}
       </header>
     );
   }
@@ -47,5 +48,6 @@ class Header extends Component {
 
 export default connect(
   state => ({ user: getUser(state) }),
-  { logout }
+  // { logout }
+  null
 )(Header);
