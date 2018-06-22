@@ -4,9 +4,17 @@
   max-width: 325px;
   max-height: 325px;
   margin: auto;
+  color: black;
+  font-family: Roboto, Helvetica;
+  font-weight: 100;
+  font-size: 1em;
 
   img {
     width: 100%;
+  }
+  
+  a {
+    text-decoration-line: none;
   }
 
   @media (min-width: 650px) {

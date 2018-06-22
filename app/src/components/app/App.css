@@ -25,5 +25,21 @@
     bottom: 0;
     transform: translateZ(0);
     top: 100vh;
+
+    nav {
+      width: 100%;
+      height: 3em;
+      display: flex;
+      justify-content: center;
+      
+      a {
+        text-decoration: none;
+        color: black;
+        font-family: Roboto, Helvetica;
+        font-weight: 100;
+        font-size: 1em;
+        margin: .25em .75em;
+      }
+    }
   }
 }
