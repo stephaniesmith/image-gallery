@@ -1,9 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,400,500,900,900i');
+
 :local(.app) {
   height: 100vh;
+  width: 100vw;
   display: grid;
-  grid-template-rows: 200px 1fr; 
+  grid-template-rows: 100vh 1fr;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 1px;
+  margin: 0;
 
   main {
-    margin: 2em;
+    min-height: 100vh;
+    width: 100%;
+    height: fit-content;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-color: white;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateZ(0);
+    top: 100vh;
+
+    nav {
+      width: 100%;
+      height: 3em;
+      display: flex;
+      justify-content: center;
+      
+      a {
+        text-decoration: none;
+        color: black;
+        font-family: Roboto, Helvetica;
+        font-weight: 100;
+        font-size: 1em;
+        margin: .25em .75em;
+      }
+    }
   }
 }
