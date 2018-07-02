@@ -5,6 +5,7 @@
 .AppleDouble
 .LSOverride
 node_modules
+package-lock.json
 
 ### Linux ###
 *~
